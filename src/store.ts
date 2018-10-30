@@ -1,17 +1,21 @@
 class Store {
-  list = [] as string[]
-  actions = {
-    list: this.list,
-    pushToList(item: string) {
-      this.list.push(item);
-    },
-    clearList() {
-      this.list = [] // changing this.list doesn't affect outer list
-    },
-    removeItem(item: string) {
-      this.list = this.list.filter((listItem: string)=>{ item !== listItem })
-    }
+
+  state = {
+    list: [] as string[]
   }
+
+    pushToList(item: string) {
+      this.state.list.push(item);
+    }
+    
+    clearList() {
+      this.state.list = []
+    }
+
+    removeItem(item: string) {
+      this.state.list = this.state.list.filter((listItem: string)=>{ item !== listItem })
+    }
+  
 }
 
 var store = new Store()
