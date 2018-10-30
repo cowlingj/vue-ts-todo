@@ -17,20 +17,19 @@ import { store } from "../store";
 export default Vue.extend({
 
   data: () => { return {
-      userInput: "",
-      list: store.list
+      userInput: ""
     }
   },
 
   methods: {
 
     addTodo() {
-       store.actions.pushToList(this.userInput);
+       store.pushToList(this.userInput);
        this.userInput = "";
     },
 
     clearList() {
-      store.actions.clearList();
+      store.clearList();
     }
   }
 });

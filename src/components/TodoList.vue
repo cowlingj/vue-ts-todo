@@ -1,7 +1,7 @@
 <template>
   <div class="tasklist">
     <h2>In Progress</h2>
-    <div v-for="item in list" v-bind:key="item" id="task">
+    <div v-for="item in state.list" v-bind:key="item" id="task">
       <p>{{item}}</p>
       <input type="button" value="Scratch" @click="scrapItem">
     </div>
@@ -16,11 +16,11 @@ import { store } from '../store'
 @Component
 export default class TodoList extends Vue {
 
-  list = store.list;
+  state = store.state;
 
   scrapItem(itemToRemove: string) {
      
-     store.actions.removeItem(itemToRemove);
+     store.removeItem(itemToRemove);
     }
 
 }
